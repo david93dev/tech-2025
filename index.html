@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TechConnect 2025 - Inovação para o Futuro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {},
+        },
+        content: ["*"],
+      };
+    </script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Inicialização -->
+    <script>
+      window.addEventListener("load", function () {
+        new Swiper(".swiper", {
+          slidesPerView: 1,
+          spaceBetween: 20,
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+          breakpoints: {
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          },
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <!-- barra de navegação -->
+    <header class="bg-gray-100 shadow-md z-50 relative">
+      <div class="flex items-center justify-between h-16 px-6 md:px-16">
+        <!-- Logo -->
+        <div class="flex items-center gap-3">
+          <img src="assets/images/logo_sem_fundo.png" alt="Logo" class="h-10" />
+          <span class="text-lg font-semibold text-gray-700">TechConnect</span>
+        </div>
+
+        <!-- Checkbox para controle do menu mobile -->
+        <input type="checkbox" id="menu-toggle" class="hidden peer" />
+
+        <!-- Botão hamburguer -->
+        <label for="menu-toggle" class="cursor-pointer md:hidden">
+          <svg
+            class="w-6 h-6 text-gray-700"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </label>
+
+        <!-- Menu de navegação -->
+        <ul
+          class="absolute left-0 top-full w-full bg-gray-100 flex-col items-start gap-4 px-6 py-4 hidden peer-checked:flex md:static md:flex md:flex-row md:items-center md:gap-6 md:py-0 md:px-0 md:w-auto md:bg-transparent"
+        >
+          <li>
+            <a href="#sobre" class="hover:text-blue-600 transition">Sobre</a>
+          </li>
+          <li>
+            <a href="#programacao" class="hover:text-blue-600 transition"
+              >Programação</a
+            >
+          </li>
+          <li>
+            <a href="#palestrantes" class="hover:text-blue-600 transition"
+              >Palestrantes</a
+            >
+          </li>
+          <li>
+            <a href="#contatos" class="hover:text-blue-600 transition"
+              >Contato</a
+            >
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- Hero do site -->
+    <main
+      class="bg-[url('assets/images/background.jpg')] bg-cover bg-center h-100 w-full"
+    >
+      <div class="flex flex-col justify-between items-center p-20">
+          <img
+          src="assets/images/logo_sem_fundo.png"
+          alt="Logo do evento"
+          class="w-[200px]"
+        />
+        <h1 class="text-5xl font-extrabold text-gray-800 text-shadow-md">
+          Techconnect 2025
+        </h1>
+        <p class="text-lg py-2 text-gray-700">
+          Conectando ideias, criando o futuro
+        </p>
+      </div>
+    </main>
+
+    <!-- sobre o evento -->
+    <section id="sobre" class="bg-white py-16 px-6 md:px-12">
+      <div
+        class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center"
+      >
+        <div class="space-y-6 animate-fade-in">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 uppercase">
+            Sobre o Evento
+          </h2>
+          <p class="text-lg text-gray-600 leading-relaxed">
+            O <strong class="text-blue-600">TechConnect 2025</strong> é um
+            evento inovador que reúne entusiastas, profissionais e estudantes de
+            tecnologia para compartilhar experiências, aprender com
+            especialistas e construir conexões valiosas. Com foco em inovação,
+            inclusão e impacto social, o evento promove debates, palestras e
+            oficinas que exploram as tendências e desafios da transformação
+            digital no Brasil e no mundo.
+          </p>
+        </div>
+        <div class="w-full animate-slide-up">
+          <img
+            src="assets/images/eventos-de-tecnologia.webp"
+            alt="Imagem do Evento"
+            class="w-full h-auto rounded-xl shadow-lg"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- programação -->
+    <section id="programacao" class="bg-gray-100 py-16 px-6 md:px-12">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-3xl font-bold text-gray-900 text-center mb-8 uppercase">
+          Programação do Evento
+        </h2>
+
+        <div class="overflow-x-auto shadow-lg">
+          <table
+            class="w-full table-auto border-collapse rounded-lg overflow-hidden"
+          >
+            <thead class="bg-blue-600 text-white">
+              <tr>
+                <th class="text-left px-6 py-4">Horário</th>
+                <th class="text-left px-6 py-4">Palestrante</th>
+                <th class="text-left px-6 py-4">Tema</th>
+              </tr>
+            </thead>
+            <tbody class="bg-white divide-y-2 divide-gray-200">
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-700">09:00h</td>
+                <td class="px-6 py-4 text-gray-800">Prof. Lavique</td>
+                <td class="px-6 py-4 text-gray-600">Juventude na TI</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-700">10:00h</td>
+                <td class="px-6 py-4 text-gray-800">Prof. Isthanlley</td>
+                <td class="px-6 py-4 text-gray-600">
+                  Liberdade, Código, Faturamento e Liderança
+                </td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-700">11:00h</td>
+                <td class="px-6 py-4 text-gray-800">Prof. Kevyn</td>
+                <td class="px-6 py-4 text-gray-600">
+                  Do Rastreamento Veicular ao Palco Mundial
+                </td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-700">12:00h</td>
+                <td class="px-6 py-4 text-gray-800">Prof. João Felipe</td>
+                <td class="px-6 py-4 text-gray-600">
+                  Do Silêncio à Plataforma
+                </td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-700">14:00h</td>
+                <td class="px-6 py-4 text-gray-800">Prof. Esdras</td>
+                <td class="px-6 py-4 text-gray-600">
+                  De Relutante em Java a Pioneiro em IA Automotiva
+                </td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-700">15:00h</td>
+                <td class="px-6 py-4 text-gray-800">Prof. David</td>
+                <td class="px-6 py-4 text-gray-600">Programação Após os 30</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!--  Palestrantes -->
+    <section id="palestrantes" class="bg-white py-16 px-12 md:px-12">
+      <h2 class="text-3xl font-bold text-center text-gray-800 mb-10 uppercase">
+        Palestrantes
+      </h2>
+
+      <!-- Swiper container -->
+      <div class="swiper w-full max-w-6xl mx-auto h-[450px] md:h-[390px]">
+        <div class="swiper-wrapper ">
+
+
+          <!-- Slide 1 - LAvique -->
+          <div
+            class="swiper-slide bg-gray-100 p-6 rounded-xl shadow-md "
+          >
+            <img
+              src="assets/images/lavique.png"
+              alt="Prof. Lavique"
+              class="w-24 h-24 rounded-full mx-auto mb-4"
+            />
+            <h3 class="text-xl font-semibold text-center">Prof. Lavique</h3>
+            <p class="text-sm text-center text-blue-600 font-medium mt-1 mb-3">
+              Juventude na TI
+            </p>
+            <p class="text-sm text-gray-700 text-justify">
+              Professor Lavique é um entusiasta da inclusão jovem no universo da
+              tecnologia. Com uma trajetória marcada por mentorias e projetos
+              sociais, ele defende que cada programador pode ser uma ponte para
+              outros. Sua palestra apresenta estratégias práticas para que a
+              juventude conquiste seu espaço no mercado de TI e crie redes de
+              colaboração.
+            </p>
+          </div>
+
+          <!-- Slide 2 - insthanlley-->
+          <div
+            class="swiper-slide bg-gray-100 p-6 rounded-xl shadow-md "
+          >
+            <img
+              src="assets/images/insta.png"
+              alt="Prof. Isthanlley"
+              class="w-24 h-24 rounded-full mx-auto mb-4"
+            />
+            <h3 class="text-xl font-semibold text-center">Prof. Isthanlley</h3>
+            <p class="text-sm text-center text-blue-600 font-medium mt-1 mb-3">
+              Liberdade, Código, Faturamento e Liderança
+            </p>
+            <p class="text-sm text-gray-700 text-justify">
+              Com uma trajetória ousada, Prof. Isthanlley compartilha sua
+              transição de desenvolvedor CLT para líder PJ. Sua palestra aborda
+              liberdade profissional, gestão de equipes e visão estratégica em
+              tecnologia — um guia valioso para quem deseja empreender na área
+              tech com autonomia e liderança.
+            </p>
+          </div>
+
+          <!-- Slide 3 - Kevyn -->
+          <div
+            class="swiper-slide bg-gray-100 p-6 rounded-xl shadow-md "
+          >
+            <img
+              src="assets/images/kevyn.png"
+              alt="Prof. Kevyn"
+              class="w-24 h-24 rounded-full mx-auto mb-4"
+            />
+            <h3 class="text-xl font-semibold text-center">Prof. Kevyn</h3>
+            <p class="text-sm text-center text-blue-600 font-medium mt-1 mb-3">
+              Do Rastreamento ao Palco Mundial
+            </p>
+            <p class="text-sm text-gray-700 text-justify">
+              Prof. Kevyn é a prova de que programação e paixão por games podem
+              transformar vidas. Com reconhecimento internacional no Valorant,
+              ele mostra como disciplina e criatividade abrem portas no universo
+              dos jogos digitais.
+            </p>
+          </div>
+
+          <!-- Slide 4 - Prof. João Felipe -->
+          <div
+            class="swiper-slide bg-gray-100 p-6 rounded-xl shadow-md "
+          >
+            <img
+              src="assets/images/joao.png"
+              alt="Prof. João Felipe"
+              class="w-24 h-24 rounded-full mx-auto mb-4"
+            />
+            <h3 class="text-xl font-semibold text-center">Prof. João Felipe</h3>
+            <p class="text-sm text-center text-blue-600 font-medium mt-1 mb-3">
+              Do Silêncio à Plataforma
+            </p>
+            <p class="text-sm text-gray-700 text-justify">
+              Advogado e desenvolvedor, João Felipe cria soluções digitais para
+              a proteção e empoderamento das mulheres. Sua palestra mostra como
+              a tecnologia pode promover justiça social e amplificar vozes
+              silenciadas.
+            </p>
+          </div>
+
+          <!-- Slide 5 - Prof. Esdras -->
+          <div
+            class="swiper-slide bg-gray-100 p-6 rounded-xl shadow-md "
+          >
+            <img
+              src="assets/images/esdras.png"
+              alt="Prof. Esdras"
+              class="w-24 h-24 rounded-full mx-auto mb-4"
+            />
+            <h3 class="text-xl font-semibold text-center">Prof. Esdras</h3>
+            <p class="text-sm text-center text-blue-600 font-medium mt-1 mb-3">
+              De Java à IA Automotiva
+            </p>
+            <p class="text-sm text-gray-700 text-justify">
+              De relutante em Java a referência em inteligência artificial
+              embarcada, Prof. Esdras traz uma história inspiradora sobre
+              superação técnica e impacto na indústria automotiva com a Hyundai.
+            </p>
+          </div>
+
+          <!-- Slide 6 - Prof. David -->
+          <div
+            class="swiper-slide bg-gray-100 p-6 rounded-xl shadow-md "
+          >
+            <img
+              src="assets/images/david.png"
+              alt="Prof. David"
+              class="w-24 h-24 rounded-full mx-auto mb-4 "
+            />
+            <h3 class="text-xl font-semibold text-center">Prof. David</h3>
+            <p class="text-sm text-center text-blue-600 font-medium mt-1 mb-3">
+              Programação Após os 30
+            </p>
+            <p class="text-sm text-gray-700 text-justify">
+              Iniciando sua carreira tech depois dos 30, Prof. David mostra que
+              nunca é tarde para evoluir. Ele compartilha estratégias práticas
+              para quem deseja crescer na tecnologia mesmo começando
+              tardiamente.
+            </p>
+          </div>
+        </div>
+
+        <!-- Paginação -->
+        <div class="swiper-pagination mt-6"></div>
+
+        
+      </div>
+    </section>
+
+   
+
+    <!-- Fale Conosco -->
+<section id="contatos" class="bg-gray-100 py-16 px-6 md:px-12">
+  <div class="max-w-2xl mx-auto">
+    <h2 class="text-3xl font-bold text-gray-800 mb-8 uppercase text-center">Fale Conosco</h2>
+    
+    <form class="space-y-6">
+      <!-- Nome -->
+      <div>
+        <label for="nome" class="block text-sm font-medium text-gray-700">Nome</label>
+        <input
+          type="text"
+          id="nome"
+          name="nome"
+          required
+          class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
+          placeholder="Seu nome completo"
+        />
+      </div>
+
+      <!-- E-mail -->
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-700">E-mail</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
+          placeholder="seuemail@exemplo.com"
+        />
+      </div>
+
+      <!-- Mensagem -->
+      <div>
+        <label for="mensagem" class="block text-sm font-medium text-gray-700">Mensagem</label>
+        <textarea
+          id="mensagem"
+          name="mensagem"
+          rows="4"
+          required
+          class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
+          placeholder="Escreva sua mensagem aqui..."
+        ></textarea>
+      </div>
+
+      <!-- Botão -->
+      <div class="text-center">
+        <button
+          type="submit"
+          class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition font-semibold"
+        >
+          Enviar Mensagem
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer class="bg-gray-900 text-gray-100 py-10 px-6 md:px-12">
+  <div class="max-w-6xl mx-auto flex flex-col justify-center items-center gap-8">
+    
+    <div class="text-sm text-gray-400 space-y-2 text-center">
+      <p class="text-white">A <strong>Tech Connect</strong> agradece pelo seu investimento de tempo e disponibilidade.</p>
+      <p><strong>Colaboradores:</strong> Lavique, Isthanlley, David, João Felipe, Kevyn e Esdras.</p>
+      <p class="text-gray-500">&copy; 2025 Tech Connect. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+    
+  </body>
+</html>
