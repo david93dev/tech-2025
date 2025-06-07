@@ -13,6 +13,7 @@
         content: ["*"],
       };
     </script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
@@ -20,23 +21,29 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    <!-- Inicialização -->
-    <script>
-      window.addEventListener("load", function () {
-        new Swiper(".swiper", {
-          slidesPerView: 1,
-          spaceBetween: 20,
-          pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-          },
-          breakpoints: {
-            768: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
-          },
-        });
-      });
-    </script>
+  
+<script>
+  window.addEventListener("load", function () {
+    new Swiper(".swiper", {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      autoplay: {
+        delay: 3000, 
+        disableOnInteraction: false,
+      },
+      breakpoints: {
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 },
+      },
+    });
+  });
+</script>
+
   </head>
 
   <body>
@@ -44,8 +51,8 @@
     <header class="bg-gray-100 shadow-md z-50 relative">
       <div class="flex items-center justify-between h-16 px-6 md:px-16">
         <!-- Logo -->
-        <div class="flex items-center gap-3">
-          <img src="assets/images/logo_sem_fundo.png" alt="Logo" class="h-10" />
+        <div class="flex items-center gap-1">
+          <img src="assets/images/logo.png" alt="Logo" class="h-10" />
           <span class="text-lg font-semibold text-gray-700">TechConnect</span>
         </div>
 
@@ -75,19 +82,25 @@
             <a href="#sobre" class="hover:text-blue-600 transition">Sobre</a>
           </li>
           <li>
-            <a href="#programacao" class="hover:text-blue-600 transition"
-              >Programação</a
-            >
-          </li>
-          <li>
             <a href="#palestrantes" class="hover:text-blue-600 transition"
               >Palestrantes</a
             >
           </li>
           <li>
-            <a href="#contatos" class="hover:text-blue-600 transition"
-              >Contato</a
+            <a href="#galeria" class="hover:text-blue-600 transition"
+              >Galeria</a
             >
+          </li>
+          <li>
+            <a href="#depoimentos" class="hover:text-blue-600 transition">Depoimentos</a>
+          </li>
+           <li>
+            <a href="#programacao" class="hover:text-blue-600 transition"
+              >Programação</a
+            >
+          </li>
+          <li>
+            <a href="#contatos" class="hover:text-blue-600 transition">Contato</a>
           </li>
         </ul>
       </div>
@@ -97,16 +110,18 @@
     <main
       class="bg-[url('assets/images/background.jpg')] bg-cover bg-center h-100 w-full"
     >
-      <div class="flex flex-col justify-between items-center p-20">
-          <img
-          src="assets/images/logo_sem_fundo.png"
+      <div class="flex flex-col justify-between items-center py-16">
+        <img
+          src="assets/images/logo.png"
           alt="Logo do evento"
-          class="w-[200px]"
+          class="w-[180px] md:w-[300px]"
         />
-        <h1 class="text-5xl font-extrabold text-gray-800 text-shadow-md">
-          Techconnect 2025
+        <h1
+          class="text-2xl md:text-6xl text-gray-800 pt-2 text-shadow-md"
+        style="font-family: 'Roboto', sans-serif; font-weight: 700">
+          TechConnect
         </h1>
-        <p class="text-lg py-2 text-gray-700">
+        <p class="text-sm text-center md:text-lg text-gray-700">
           Conectando ideias, criando o futuro
         </p>
       </div>
@@ -117,11 +132,13 @@
       <div
         class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center"
       >
-        <div class="space-y-6 animate-fade-in">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 uppercase">
+        <div class="space-y-6">
+          <h2
+            class="text-center md:text-left text-3xl md:text-4xl font-bold text-gray-800 uppercase"
+          style="font-family: 'Roboto', sans-serif; font-weight: 850">
             Sobre o Evento
           </h2>
-          <p class="text-lg text-gray-600 leading-relaxed">
+          <p class="text-justify text-lg text-gray-600 leading-relaxed">
             O <strong class="text-blue-600">TechConnect 2025</strong> é um
             evento inovador que reúne entusiastas, profissionais e estudantes de
             tecnologia para compartilhar experiências, aprender com
@@ -141,12 +158,333 @@
       </div>
     </section>
 
-    <!-- programação -->
+     <!--  Card Destaque grey-->
+
+    <section id="destaques" class="relative w-full bg-gray-100 py-16 px-4">
+      <div class="max-w-7xl mx-auto text-center">
+        <h2 class="text-3xl md:text-5xl text-center text-4xl text-center font-extrabold mb-2 italic uppercase text-blue-600"  style="font-family: 'Roboto', sans-serif; font-weight: 850">TechConnect 2025</h2>
+        <p class="text-sm md:text-lg text-gray-600 mx-auto">
+          Explore as experiências imersivas e inovadoras que preparamos para
+          você no maior evento de tecnologia da região.
+        </p>
+      </div>
+
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto mt-12"
+      >
+        <!-- Hackathons -->
+        <article
+          class="bg-white shadow-xl rounded-2xl overflow-hidden transition-transform duration-300 hover:scale-105"
+        >
+          <img
+            class="w-full h-60 object-cover"
+            src="./assets/images/hackathon.jpg"
+            alt="Hackathons"
+          />
+          <div class="p-6">
+            <h2 class="text-xl font-bold mb-2">Hackathons</h2>
+            <p class="text-gray-700">
+              Participe de desafios intensos em equipe para resolver problemas
+              reais com soluções criativas, contando com mentoria e premiações
+              exclusivas.
+            </p>
+          </div>
+        </article>
+
+        <!-- Games -->
+        <article
+          class="bg-white shadow-xl rounded-2xl overflow-hidden transition-transform duration-300 hover:scale-105"
+        >
+          <img
+            class="w-full h-60 object-cover"
+            src="./assets/images/games.jpg"
+            alt="Tecnologia Interativa e Games"
+          />
+          <div class="p-6">
+            <h2 class="text-xl font-bold mb-2">
+              Área de Tecnologia Interativa & Games
+            </h2>
+            <p class="text-gray-700">
+              Explore experiências com realidade virtual, jogos, robótica e
+              outras tecnologias que você pode testar e interagir ao vivo.
+            </p>
+          </div>
+        </article>
+
+        <!-- Palestras & Workshops -->
+        <article
+          class="bg-white shadow-xl rounded-2xl overflow-hidden transition-transform duration-300 hover:scale-105"
+        >
+          <img
+            class="w-full h-60 object-cover"
+            src="./assets/images/palestras.jpg"
+            alt="Palestras"
+          />
+          <div class="p-6">
+            <h2 class="text-xl font-bold mb-2">
+              Palestras & Workshops
+            </h2>
+            <p class="text-gray-700">
+              Assista a talks inspiradoras com grandes nomes da tecnologia,
+              inovação e empreendedorismo digital, discutindo tendências e
+              futuro do setor.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+
+    <!--  Palestrantes -->
+    <section id="palestrantes" class="bg-white py-16 px-12 md:px-12">
+      <h2 class="text-3xl md:text-5xl text-center text-4xl text-center font-extrabold mb-2 italic uppercase text-blue-600" style="font-family: 'Roboto', sans-serif;" mb-2 italic uppercase text-blue-600" style="font-family: 'Roboto', sans-serif; font-weight: 850">
+        Palestrantes
+      </h2>
+      <p class="text-sm md:text-lg text-center text-gray-600 pb-8 mx-auto">
+          Especialistas que inspiram, conheça os palestrantes que estão transformando o futuro da tecnologia.
+        </p>
+
+      <!-- Swiper container -->
+      <div class="swiper w-full max-w-[1500px] mx-auto">
+        <div class="swiper-wrapper">
+          <!-- Slide 1 - Lavique -->
+          <div class="swiper-slide shadow-md">
+            <img
+              src="assets/images/palestrante1.png"
+              alt="Prof. Lavique"
+              class="mx-auto rounded-lg"
+            />
+          </div>
+
+          <!-- Slide 2 - insthanlley-->
+           <div class="swiper-slide shadow-md">
+            <img
+              src="assets/images/palestrante5.png"
+              alt="Prof. Lavique"
+              class="mx-auto rounded-lg"
+            />
+          </div>
+
+          <!-- Slide 3 - Kevyn -->
+           <div class="swiper-slide shadow-md">
+            <img
+              src="assets/images/palestrante3.png"
+              alt="Prof. Lavique"
+              class="mx-auto rounded-lg"
+            />
+          </div>
+
+          <!-- Slide 4 - Prof. João Felipe -->
+           <div class="swiper-slide shadow-md">
+            <img
+              src="assets/images/palestrante4.png"
+              alt="Prof. Lavique"
+              class="mx-auto rounded-lg"
+            />
+          </div>
+
+          <!-- Slide 5 - Prof. Esdras -->
+           <div class="swiper-slide shadow-md">
+            <img
+              src="assets/images/palestrante6.png"
+              alt="Prof. Lavique"
+              class="mx-auto rounded-lg"
+            />
+          </div>
+
+          <!-- Slide 6 - Prof. David -->
+           <div class="swiper-slide shadow-md">
+            <img
+              src="assets/images/palestrante2.png"
+              alt="Prof. Lavique"
+              class="mx-auto rounded-lg"
+            />
+          </div>
+        
+      </div>
+      <div class="swiper-pagination mt-6"></div>
+    </section>
+
+    <!--  Galeria de fotos grey-->
+
+    <section id="galeria" class="bg-gray-100 py-8">
+      <div class="flex flex-col items-center justify-center">
+         <div class="max-w-7xl mx-auto text-center py-8">
+        <h2 class="text-3xl px-2 md:text-5xl text-4xl text-center font-extrabold mb-2 italic uppercase text-blue-600" style="font-family: 'Roboto', sans-serif; font-weight: 850">
+          Galeria de imagens </h2>
+        <p class="text-sm md:text-lg text-gray-600 mx-auto">
+          Outras edições do TechConnect.
+        </p>
+      </div>
+     <div class="flex items-center justify-center">
+         <div
+          class="absolute w-full bg-blue-600 py-12 md:py-40 flex justify-between items-center"
+        ></div>
+        <div class="w-[90%] md:w-[60%] grid grid-cols-2 gap-4 md:gap-10 z-50">
+         <div class="w-full aspect-[5/3] overflow-hidden rounded-lg shadow-md">
+        <img
+          src="./assets/images/evento1.jpeg"
+          alt="Evento 1"
+          class="w-full h-full object-cover"
+        />
+      </div>
+      <div class="w-full aspect-[5/3] overflow-hidden rounded-lg shadow-md">
+        <img
+          src="./assets/images/evento2.jpg"
+          alt="Evento 2"
+          class="w-full h-full object-cover"
+        />
+      </div>
+      <div class="w-full aspect-[5/3] overflow-hidden rounded-lg shadow-md">
+        <img
+          src="./assets/images/evento3.jpg"
+          alt="Evento 3"
+          class="w-full h-full object-cover"
+        />
+      </div>
+      <div class="w-full aspect-[5/3] overflow-hidden rounded-lg shadow-md">
+        <img
+          src="./assets/images/evento4.jpg"
+          alt="Evento 4"
+          class="w-full h-full object-cover"
+        />
+      </div>
+        </div>
+     </div>
+      </div>
+    </section>
+
+    <!--  Carrosel depoimentos - Lavique white -->
+  <section id="depoimentos" class="py-12 bg-white">
+    <h2 class="text-3xl px-2 md:text-5xl text-4xl text-center font-extrabold mb-2 italic uppercase text-blue-600" style="font-family: 'Roboto', sans-serif; font-weight: 850">
+      Depoimentos
+    </h2>
+     <p class="text-sm md:text-lg text-center text-gray-600 pb-8 mx-auto">
+      O que dizem nossos participantes: experiências reais, vozes autênticas.
+    </p>
+
+    <div class="swiper swiper-depoimentos w-full max-w-6xl mx-auto">
+      <div class="swiper-wrapper ">
+        <div class="swiper-slide container mx-auto px-4 max-w-3xl">
+          <div class="bg-gray-100 p-6 rounded-lg shadow-md mb-8 h-[250px] overflow-hidden">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-16 h-16 rounded-full bg-gray-300 overflow-hidden">
+                <img src="assets/images/ednaldo.jpg" alt="Foto do usuário" class="w-full h-full object-cover">
+              </div>
+              <div class="flex-1">
+                <div class="font-semibold text-lg text-gray-800">Ednaldo Pereira</div>
+      
+                <div class="flex items-center text-sm text-gray-500 gap-2 mt-1">
+                  <div class="flex text-yellow-400">
+                    ★★★★☆
+                  </div>
+                  <span class="text-xs">• 01 Jun 2025</span>
+                </div>
+              </div>
+            </div>
+            <div class="text-gray-700 text-base leading-relaxed">
+              O evento foi incrível! Aprendi muito com os palestrantes, principalmente sobre inovação em tecnologia. Já quero
+              participar da próxima edição!
+            </div>
+          </div>
+        </div>
+    
+        <div class="swiper-slide container mx-auto px-4 max-w-3xl">
+          <div class="bg-gray-100 p-6 rounded-lg shadow-md mb-8 h-[250px] overflow-hidden">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-16 h-16 rounded-full bg-gray-300 overflow-hidden">
+                <img src="assets/images/serjão.webp" alt="Foto do usuário" class="w-full h-full object-cover">
+              </div>
+              <div class="flex-1">
+                <div class="font-semibold text-lg text-gray-800">Serjão Berranteiro</div>
+                <div class="flex items-center text-sm text-gray-500 gap-2 mt-1">
+                  <div class="flex text-yellow-400">★★★★★</div>
+                  <span class="text-xs">• 02 Jun 2025</span>
+                </div>
+              </div>
+            </div>
+            <div class="text-gray-700 text-base leading-relaxed">
+              Uma experiência sensacional! As oficinas foram muito práticas e os temas abordaram exatamente o que procurava.
+            </div>
+          </div>
+        </div>
+    
+        <div class="swiper-slide container mx-auto px-4 max-w-3xl">
+          <div class="bg-gray-100 p-6 rounded-lg shadow-md mb-8 h-[250px] overflow-hidden">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-16 h-16 rounded-full bg-gray-300 overflow-hidden">
+                <img src="assets/images/neymar.jpg" alt="Foto do usuário" class="w-full h-full object-cover">
+              </div>
+              <div class="flex-1">
+                <div class="font-semibold text-lg text-gray-800">Neymar</div>
+                <div class="flex items-center text-sm text-gray-500 gap-2 mt-1">
+                  <div class="flex text-yellow-400">★★★★☆</div>
+                  <span class="text-xs">• 01 Jun 2025</span>
+                </div>
+              </div>
+            </div>
+            <div class="text-gray-700 text-base leading-relaxed">
+              Gostei bastante do conteúdo apresentado, principalmente dos insights sobre liderança e inovação. Parabéns à equipe!
+            </div>
+          </div>
+        </div>
+        
+        <div class="swiper-slide container mx-auto px-4 max-w-3xl">
+          <div class="bg-gray-100 p-6 rounded-lg shadow-md mb-8 h-[250px] overflow-hidden">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-16 h-16 rounded-full bg-gray-300 overflow-hidden">
+                <img src="assets/images/mizael.webp" alt="Foto do usuário" class="w-full h-full object-cover">
+              </div>
+              <div class="flex-1">
+                <div class="font-semibold text-lg text-gray-800">Advogado de Alexandre de Moraes</div>
+                <div class="flex items-center text-sm text-gray-500 gap-2 mt-1">
+                  <div class="flex text-yellow-400">★★★☆☆</div>
+                  <span class="text-xs">• 31 Mai 2025</span>
+                </div>
+              </div>
+            </div>
+            <div class="text-gray-700 text-base leading-relaxed">
+              Achei o evento interessante, mas algumas palestras estavam um pouco técnicas demais. No geral, foi produtivo!
+            </div>
+          </div>
+        </div>
+        
+        <div class="swiper-slide container mx-auto px-4 max-w-3xl">
+          <div class="bg-gray-100 p-6 rounded-lg shadow-md mb-8 h-[250px] overflow-hidden">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-16 h-16 rounded-full bg-gray-300 overflow-hidden">
+                <img src="assets/images/heman.jpg" alt="Foto do usuário" class="w-full h-full object-cover">
+              </div>
+              <div class="flex-1">
+                <div class="font-semibold text-lg text-gray-800">He-Man</div>
+                <div class="flex items-center text-sm text-gray-500 gap-2 mt-1">
+                  <div class="flex text-yellow-400">★★★★★</div>
+                  <span class="text-xs">• 02 Jun 2025</span>
+                </div>
+              </div>
+            </div>
+            <div class="text-gray-700 text-base leading-relaxed">
+              Já participei de outros eventos, mas esse realmente superou as expectativas. Organização impecável e conteúdo de
+              ponta.
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="swiper-pagination mt-4"></div>
+    </div>
+
+  </section>
+
+      <!-- programação -->
     <section id="programacao" class="bg-gray-100 py-16 px-6 md:px-12">
       <div class="max-w-5xl mx-auto">
-        <h2 class="text-3xl font-bold text-gray-900 text-center mb-8 uppercase">
-          Programação do Evento
-        </h2>
+       <h2 class="text-3xl px-2 md:text-5xl text-4xl text-center font-extrabold mb-2 italic uppercase text-blue-600" style="font-family: 'Roboto', sans-serif; font-weight: 850">
+  Programação do Evento
+</h2>
+<p class="text-sm md:text-lg text-center text-gray-600 pb-8 mx-auto">
+  Confira os horários, atividades e tudo que preparamos para você viver uma experiência completa.
+</p>
 
         <div class="overflow-x-auto shadow-lg">
           <table
@@ -196,7 +534,7 @@
               <tr>
                 <td class="px-6 py-4 font-medium text-gray-700">15:00h</td>
                 <td class="px-6 py-4 text-gray-800">Prof. David</td>
-                <td class="px-6 py-4 text-gray-600">Programação Após os 30</td>
+                <td class="px-6 py-4 text-gray-600">Estudando com outra geração</td>
               </tr>
             </tbody>
           </table>
@@ -204,224 +542,142 @@
       </div>
     </section>
 
-    <!--  Palestrantes -->
-    <section id="palestrantes" class="bg-white py-16 px-12 md:px-12">
-      <h2 class="text-3xl font-bold text-center text-gray-800 mb-10 uppercase">
-        Palestrantes
-      </h2>
+   
 
-      <!-- Swiper container -->
-      <div class="swiper w-full max-w-6xl mx-auto h-[450px] md:h-[390px]">
-        <div class="swiper-wrapper ">
+    <!--  Patrocinadores - Lavique white-->
+
+    <section id="patrocinadores" class="py-12 bg-white">
+      <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-3xl px-2 md:text-5xl text-4xl text-center font-extrabold mb-2 italic uppercase text-blue-600" style="font-family: 'Roboto', sans-serif; font-weight: 850">
+  Patrocinadores
+</h2>
+<p class="text-sm md:text-lg text-center text-gray-600 pb-8 mx-auto">
+  Conheça as marcas que acreditam na inovação e tornam este evento possível.
+</p>
 
 
-          <!-- Slide 1 - LAvique -->
-          <div
-            class="swiper-slide bg-gray-100 p-6 rounded-xl shadow-md "
-          >
-            <img
-              src="assets/images/lavique.png"
-              alt="Prof. Lavique"
-              class="w-24 h-24 rounded-full mx-auto mb-4"
-            />
-            <h3 class="text-xl font-semibold text-center">Prof. Lavique</h3>
-            <p class="text-sm text-center text-blue-600 font-medium mt-1 mb-3">
-              Juventude na TI
-            </p>
-            <p class="text-sm text-gray-700 text-justify">
-              Professor Lavique é um entusiasta da inclusão jovem no universo da
-              tecnologia. Com uma trajetória marcada por mentorias e projetos
-              sociais, ele defende que cada programador pode ser uma ponte para
-              outros. Sua palestra apresenta estratégias práticas para que a
-              juventude conquiste seu espaço no mercado de TI e crie redes de
-              colaboração.
-            </p>
-          </div>
-
-          <!-- Slide 2 - insthanlley-->
-          <div
-            class="swiper-slide bg-gray-100 p-6 rounded-xl shadow-md "
-          >
-            <img
-              src="assets/images/insta.png"
-              alt="Prof. Isthanlley"
-              class="w-24 h-24 rounded-full mx-auto mb-4"
-            />
-            <h3 class="text-xl font-semibold text-center">Prof. Isthanlley</h3>
-            <p class="text-sm text-center text-blue-600 font-medium mt-1 mb-3">
-              Liberdade, Código, Faturamento e Liderança
-            </p>
-            <p class="text-sm text-gray-700 text-justify">
-              Com uma trajetória ousada, Prof. Isthanlley compartilha sua
-              transição de desenvolvedor CLT para líder PJ. Sua palestra aborda
-              liberdade profissional, gestão de equipes e visão estratégica em
-              tecnologia — um guia valioso para quem deseja empreender na área
-              tech com autonomia e liderança.
-            </p>
-          </div>
-
-          <!-- Slide 3 - Kevyn -->
-          <div
-            class="swiper-slide bg-gray-100 p-6 rounded-xl shadow-md "
-          >
-            <img
-              src="assets/images/kevyn.png"
-              alt="Prof. Kevyn"
-              class="w-24 h-24 rounded-full mx-auto mb-4"
-            />
-            <h3 class="text-xl font-semibold text-center">Prof. Kevyn</h3>
-            <p class="text-sm text-center text-blue-600 font-medium mt-1 mb-3">
-              Do Rastreamento ao Palco Mundial
-            </p>
-            <p class="text-sm text-gray-700 text-justify">
-              Prof. Kevyn é a prova de que programação e paixão por games podem
-              transformar vidas. Com reconhecimento internacional no Valorant,
-              ele mostra como disciplina e criatividade abrem portas no universo
-              dos jogos digitais.
-            </p>
-          </div>
-
-          <!-- Slide 4 - Prof. João Felipe -->
-          <div
-            class="swiper-slide bg-gray-100 p-6 rounded-xl shadow-md "
-          >
-            <img
-              src="assets/images/joao.png"
-              alt="Prof. João Felipe"
-              class="w-24 h-24 rounded-full mx-auto mb-4"
-            />
-            <h3 class="text-xl font-semibold text-center">Prof. João Felipe</h3>
-            <p class="text-sm text-center text-blue-600 font-medium mt-1 mb-3">
-              Do Silêncio à Plataforma
-            </p>
-            <p class="text-sm text-gray-700 text-justify">
-              Advogado e desenvolvedor, João Felipe cria soluções digitais para
-              a proteção e empoderamento das mulheres. Sua palestra mostra como
-              a tecnologia pode promover justiça social e amplificar vozes
-              silenciadas.
-            </p>
-          </div>
-
-          <!-- Slide 5 - Prof. Esdras -->
-          <div
-            class="swiper-slide bg-gray-100 p-6 rounded-xl shadow-md "
-          >
-            <img
-              src="assets/images/esdras.png"
-              alt="Prof. Esdras"
-              class="w-24 h-24 rounded-full mx-auto mb-4"
-            />
-            <h3 class="text-xl font-semibold text-center">Prof. Esdras</h3>
-            <p class="text-sm text-center text-blue-600 font-medium mt-1 mb-3">
-              De Java à IA Automotiva
-            </p>
-            <p class="text-sm text-gray-700 text-justify">
-              De relutante em Java a referência em inteligência artificial
-              embarcada, Prof. Esdras traz uma história inspiradora sobre
-              superação técnica e impacto na indústria automotiva com a Hyundai.
-            </p>
-          </div>
-
-          <!-- Slide 6 - Prof. David -->
-          <div
-            class="swiper-slide bg-gray-100 p-6 rounded-xl shadow-md "
-          >
-            <img
-              src="assets/images/david.png"
-              alt="Prof. David"
-              class="w-24 h-24 rounded-full mx-auto mb-4 "
-            />
-            <h3 class="text-xl font-semibold text-center">Prof. David</h3>
-            <p class="text-sm text-center text-blue-600 font-medium mt-1 mb-3">
-              Programação Após os 30
-            </p>
-            <p class="text-sm text-gray-700 text-justify">
-              Iniciando sua carreira tech depois dos 30, Prof. David mostra que
-              nunca é tarde para evoluir. Ele compartilha estratégias práticas
-              para quem deseja crescer na tecnologia mesmo começando
-              tardiamente.
-            </p>
-          </div>
+        <div
+          class="grid grid-cols-2 py-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 items-center justify-items-center"
+        >
+          <img
+            src="assets/images/space-x-logo.png"
+            alt="spacex"
+            class="h-12 sm:h-16 object-contain"
+          />
+          <img
+            src="assets/images/logo_redecompras_-_site_solides.png_name_20230619-11097-1o2fjtv.png"
+            alt="rede-compras"
+            class="h-12 sm:h-16 object-contain"
+          />
+          <img
+            src="assets/images/aws.svg.png"
+            alt="aws"
+            class="h-12 sm:h-16 object-contain"
+          />
+          <img
+            src="assets/images/lindo-olhar.png"
+            alt="lindo-olhar"
+            class="h-12 sm:h-16 object-contain"
+          />
+          <img
+            src="assets/images/microsoft_logo_icon_168102.webp"
+            alt="microsoft"
+            class="h-12 sm:h-16 object-contain"
+          />
         </div>
-
-        <!-- Paginação -->
-        <div class="swiper-pagination mt-6"></div>
-
-        
       </div>
     </section>
 
-   
-
     <!-- Fale Conosco -->
-<section id="contatos" class="bg-gray-100 py-16 px-6 md:px-12">
-  <div class="max-w-2xl mx-auto">
-    <h2 class="text-3xl font-bold text-gray-800 mb-8 uppercase text-center">Fale Conosco</h2>
-    
-    <form class="space-y-6">
-      <!-- Nome -->
-      <div>
-        <label for="nome" class="block text-sm font-medium text-gray-700">Nome</label>
-        <input
-          type="text"
-          id="nome"
-          name="nome"
-          required
-          class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
-          placeholder="Seu nome completo"
-        />
+    <section id="contatos" class="bg-gray-100 py-16 px-6 md:px-12">
+      <div class="max-w-2xl mx-auto">
+        <h2 class="text-3xl px-2 md:text-4xl text-4xl text-center font-extrabold mb-2  uppercase text-gray-800" style="font-family: 'Roboto', sans-serif; font-weight: 850">
+  Fale Conosco
+</h2>
+<p class="text-sm md:text-md text-center text-gray-600 pb-8 mx-auto">
+  Tem dúvidas, sugestões ou quer saber mais? Estamos prontos para te ouvir.
+</p>
+
+
+        <form class="space-y-6">
+          <!-- Nome -->
+          <div>
+            <label for="nome" class="block text-sm font-medium text-gray-700"
+              >Nome</label
+            >
+            <input
+              type="text"
+              id="nome"
+              name="nome"
+              required
+              class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Seu nome completo"
+            />
+          </div>
+
+          <!-- E-mail -->
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700"
+              >E-mail</label
+            >
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
+              placeholder="seuemail@exemplo.com"
+            />
+          </div>
+
+          <!-- Mensagem -->
+          <div>
+            <label
+              for="mensagem"
+              class="block text-sm font-medium text-gray-700"
+              >Mensagem</label
+            >
+            <textarea
+              id="mensagem"
+              name="mensagem"
+              rows="4"
+              required
+              class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Escreva sua mensagem aqui..."
+            ></textarea>
+          </div>
+
+          <!-- Botão -->
+          <div class="text-center">
+            <button
+              type="submit"
+              class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition font-semibold"
+            >
+              Enviar Mensagem
+            </button>
+          </div>
+        </form>
       </div>
+    </section>
 
-      <!-- E-mail -->
-      <div>
-        <label for="email" class="block text-sm font-medium text-gray-700">E-mail</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          required
-          class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
-          placeholder="seuemail@exemplo.com"
-        />
+    <footer class="bg-gray-900 text-gray-100 py-10 px-6 md:px-12">
+      <div
+        class="max-w-6xl mx-auto flex flex-col justify-center items-center gap-8"
+      >
+        <div class="text-sm text-gray-400 space-y-2 text-center">
+          <p class="text-white">
+            A <strong>TechConnect</strong> agradece pelo seu investimento de
+            tempo e disponibilidade.
+          </p>
+          <p>
+            <strong>Colaboradores:</strong> Lavique, Isthanlley, David, João
+            Felipe, Kevyn e Esdras.
+          </p>
+          <p class="text-gray-500">
+            &copy; 2025 TechConnect. All rights reserved.
+          </p>
+        </div>
       </div>
-
-      <!-- Mensagem -->
-      <div>
-        <label for="mensagem" class="block text-sm font-medium text-gray-700">Mensagem</label>
-        <textarea
-          id="mensagem"
-          name="mensagem"
-          rows="4"
-          required
-          class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
-          placeholder="Escreva sua mensagem aqui..."
-        ></textarea>
-      </div>
-
-      <!-- Botão -->
-      <div class="text-center">
-        <button
-          type="submit"
-          class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition font-semibold"
-        >
-          Enviar Mensagem
-        </button>
-      </div>
-    </form>
-  </div>
-</section>
-
-<footer class="bg-gray-900 text-gray-100 py-10 px-6 md:px-12">
-  <div class="max-w-6xl mx-auto flex flex-col justify-center items-center gap-8">
-    
-    <div class="text-sm text-gray-400 space-y-2 text-center">
-      <p class="text-white">A <strong>Tech Connect</strong> agradece pelo seu investimento de tempo e disponibilidade.</p>
-      <p><strong>Colaboradores:</strong> Lavique, Isthanlley, David, João Felipe, Kevyn e Esdras.</p>
-      <p class="text-gray-500">&copy; 2025 Tech Connect. All rights reserved.</p>
-    </div>
-  </div>
-</footer>
-
-    
+    </footer>
   </body>
 </html>
