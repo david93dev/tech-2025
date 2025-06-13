@@ -4,16 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TechConnect 2025 - Inovação para o Futuro</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css"
+      rel="stylesheet"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      tailwind.config = {
-        theme: {
-          extend: {},
-        },
-        content: ["*"],
-      };
+      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+      if (
+        localStorage.getItem("color-theme") === "dark" ||
+        (!("color-theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
@@ -21,39 +33,48 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-  
-<script>
-  window.addEventListener("load", function () {
-    new Swiper(".swiper", {
-      slidesPerView: 1,
-      spaceBetween: 20,
-      loop: true,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      autoplay: {
-        delay: 3000, 
-        disableOnInteraction: false,
-      },
-      breakpoints: {
-        768: { slidesPerView: 2 },
-        1024: { slidesPerView: 3 },
-      },
-    });
-  });
-</script>
-
+    <script>
+      window.addEventListener("load", function () {
+        new Swiper(".swiper", {
+          slidesPerView: 1,
+          spaceBetween: 20,
+          loop: true,
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+          autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+          },
+          breakpoints: {
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          },
+        });
+      });
+    </script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {},
+        },
+        content: ["*"],
+      };
+    </script>
   </head>
 
   <body>
     <!-- barra de navegação -->
-    <header class="bg-gray-100 shadow-md z-50 relative">
+    <header class="bg-gray-100 shadow-md z-50 relative dark:bg-gray-900">
       <div class="flex items-center justify-between h-16 px-6 md:px-16">
         <!-- Logo -->
         <div class="flex items-center gap-1">
           <img src="assets/images/logo.png" alt="Logo" class="h-10" />
-          <span class="text-lg font-semibold text-gray-700">TechConnect</span>
+          <span class="text-lg font-semibold text-gray-700 dark:text-gray-200"
+            >TechConnect</span
+          >
         </div>
 
         <!-- Checkbox para controle do menu mobile -->
@@ -62,7 +83,7 @@
         <!-- Botão hamburguer -->
         <label for="menu-toggle" class="cursor-pointer md:hidden">
           <svg
-            class="w-6 h-6 text-gray-700"
+            class="w-6 h-6 text-gray-700 dark:text-gray-200"
             fill="none"
             stroke="currentColor"
             stroke-width="2"
@@ -76,33 +97,81 @@
 
         <!-- Menu de navegação -->
         <ul
-          class="absolute left-0 top-full w-full bg-gray-100 flex-col items-start gap-4 px-6 py-4 hidden peer-checked:flex md:static md:flex md:flex-row md:items-center md:gap-6 md:py-0 md:px-0 md:w-auto md:bg-transparent"
+          class="absolute font-bold left-0 top-full w-full  flex-col items-start gap-4 px-6 py-4 hidden peer-checked:flex md:static md:flex md:flex-row md:items-center md:gap-6 md:py-0 md:px-0 md:w-auto md:bg-transparent text-gray-700 dark:text-gray-100"
         >
           <li>
-            <a href="#sobre" class="hover:text-blue-600 transition">Sobre</a>
+            <a
+              href="#sobre"
+              class="hover:text-blue-600 dark:hover:text-blue-400 transition"
+              >Sobre</a
+            >
           </li>
           <li>
-            <a href="#palestrantes" class="hover:text-blue-600 transition"
+            <a
+              href="#palestrantes"
+              class="hover:text-blue-600 dark:hover:text-blue-400 transition"
               >Palestrantes</a
             >
           </li>
           <li>
-            <a href="#galeria" class="hover:text-blue-600 transition"
+            <a
+              href="#galeria"
+              class="hover:text-blue-600 dark:hover:text-blue-400 transition"
               >Galeria</a
             >
           </li>
           <li>
-            <a href="#depoimentos" class="hover:text-blue-600 transition">Depoimentos</a>
+            <a
+              href="#depoimentos"
+              class="hover:text-blue-600 dark:hover:text-blue-400 transition"
+              >Depoimentos</a
+            >
           </li>
-           <li>
-            <a href="#programacao" class="hover:text-blue-600 transition"
+          <li>
+            <a
+              href="#programacao"
+              class="hover:text-blue-600 dark:hover:text-blue-400 transition"
               >Programação</a
             >
           </li>
           <li>
-            <a href="#contatos" class="hover:text-blue-600 transition">Contato</a>
+            <a
+              href="#contatos"
+              class="hover:text-blue-600 dark:hover:text-blue-400 transition"
+              >Contato</a
+            >
           </li>
         </ul>
+        <button
+          id="theme-toggle"
+          type="button"
+          class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
+        >
+          <svg
+            id="theme-toggle-dark-icon"
+            class="hidden w-5 h-5"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+            ></path>
+          </svg>
+          <svg
+            id="theme-toggle-light-icon"
+            class="hidden w-5 h-5"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </button>
       </div>
     </header>
 
@@ -118,7 +187,8 @@
         />
         <h1
           class="text-2xl md:text-6xl text-gray-800 pt-2 text-shadow-md"
-        style="font-family: 'Roboto', sans-serif; font-weight: 700">
+          style="font-family: 'Roboto', sans-serif; font-weight: 700"
+        >
           TechConnect
         </h1>
         <p class="text-sm text-center md:text-lg text-gray-700">
@@ -128,18 +198,21 @@
     </main>
 
     <!-- sobre o evento -->
-    <section id="sobre" class="bg-white py-16 px-6 md:px-12">
+    <section id="sobre" class="bg-white py-16 px-6 md:px-12 dark:bg-gray-900">
       <div
         class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center"
       >
         <div class="space-y-6">
           <h2
-            class="text-center md:text-left text-3xl md:text-4xl font-bold text-gray-800 uppercase"
-          style="font-family: 'Roboto', sans-serif; font-weight: 850">
+            class="text-center md:text-left text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-200 uppercase"
+            style="font-family: 'Roboto', sans-serif; font-weight: 850"
+          >
             Sobre o Evento
           </h2>
-          <p class="text-justify text-lg text-gray-600 leading-relaxed">
-            O <strong class="text-blue-600">TechConnect 2025</strong> é um
+          <p
+            class="text-justify text-lg text-gray-600 dark:text-gray-100 leading-relaxed"
+          >
+            O <strong class="text-blue-400">TechConnect 2025</strong> é um
             evento inovador que reúne entusiastas, profissionais e estudantes de
             tecnologia para compartilhar experiências, aprender com
             especialistas e construir conexões valiosas. Com foco em inovação,
@@ -158,12 +231,21 @@
       </div>
     </section>
 
-     <!--  Card Destaque grey-->
+    <!--  Card Destaque grey-->
 
-    <section id="destaques" class="relative w-full bg-gray-100 py-16 px-4">
+    <section
+      id="destaques"
+      class="relative w-full bg-gray-100 dark:bg-gray-500 py-16 px-4"
+    >
       <div class="max-w-7xl mx-auto text-center">
-        <h2 class="text-3xl md:text-5xl text-center text-4xl text-center font-extrabold mb-2 italic uppercase text-blue-600"  style="font-family: 'Roboto', sans-serif; font-weight: 850">TechConnect 2025</h2>
-        <p class="text-sm md:text-lg text-gray-600 mx-auto">
+        <h2
+          class="text-3xl md:text-5xl text-center text-4xl text-center 
+          font-extrabold mb-2 italic uppercase text-blue-600 dark:text-blue-400"
+          style="font-family: 'Roboto', sans-serif; font-weight: 850"
+        >
+          TechConnect 2025
+        </h2>
+        <p class="text-sm md:text-lg text-gray-600 mx-auto dark:text-gray-900">
           Explore as experiências imersivas e inovadoras que preparamos para
           você no maior evento de tecnologia da região.
         </p>
@@ -174,7 +256,7 @@
       >
         <!-- Hackathons -->
         <article
-          class="bg-white shadow-xl rounded-2xl overflow-hidden transition-transform duration-300 hover:scale-105"
+          class="bg-white shadow-xl rounded-2xl overflow-hidden transition-transform duration-300 hover:scale-105 hover:cursor-pointer"
         >
           <img
             class="w-full h-60 object-cover"
@@ -193,7 +275,7 @@
 
         <!-- Games -->
         <article
-          class="bg-white shadow-xl rounded-2xl overflow-hidden transition-transform duration-300 hover:scale-105"
+          class="bg-white shadow-xl rounded-2xl overflow-hidden transition-transform duration-300 hover:scale-105 hover:cursor-pointer"
         >
           <img
             class="w-full h-60 object-cover"
@@ -213,7 +295,7 @@
 
         <!-- Palestras & Workshops -->
         <article
-          class="bg-white shadow-xl rounded-2xl overflow-hidden transition-transform duration-300 hover:scale-105"
+          class="bg-white shadow-xl rounded-2xl overflow-hidden transition-transform duration-300 hover:scale-105 hover:cursor-pointer"
         >
           <img
             class="w-full h-60 object-cover"
@@ -221,9 +303,7 @@
             alt="Palestras"
           />
           <div class="p-6">
-            <h2 class="text-xl font-bold mb-2">
-              Palestras & Workshops
-            </h2>
+            <h2 class="text-xl font-bold mb-2">Palestras & Workshops</h2>
             <p class="text-gray-700">
               Assista a talks inspiradoras com grandes nomes da tecnologia,
               inovação e empreendedorismo digital, discutindo tendências e
@@ -234,21 +314,29 @@
       </div>
     </section>
 
-
     <!--  Palestrantes -->
-    <section id="palestrantes" class="bg-white py-16 px-12 md:px-12">
-      <h2 class="text-3xl md:text-5xl text-center text-4xl text-center font-extrabold mb-2 italic uppercase text-blue-600" style="font-family: 'Roboto', sans-serif;" mb-2 italic uppercase text-blue-600" style="font-family: 'Roboto', sans-serif; font-weight: 850">
+    <section
+      id="palestrantes"
+      class="bg-white dark:bg-gray-900 py-16 px-12 md:px-12"
+    >
+      <h2
+        class="text-3xl md:text-5xl text-center text-4xl font-extrabold mb-2 italic uppercase text-blue-600 dark:text-blue-400"
+        style="font-family: 'Roboto', sans-serif; font-weight: 850"
+      >
         Palestrantes
       </h2>
-      <p class="text-sm md:text-lg text-center text-gray-600 pb-8 mx-auto">
-          Especialistas que inspiram, conheça os palestrantes que estão transformando o futuro da tecnologia.
-        </p>
+      <p
+        class="text-sm md:text-lg text-center text-gray-600 dark:text-gray-300 pb-8 mx-auto"
+      >
+        Especialistas que inspiram, conheça os palestrantes que estão
+        transformando o futuro da tecnologia.
+      </p>
 
       <!-- Swiper container -->
       <div class="swiper w-full max-w-[1500px] mx-auto">
         <div class="swiper-wrapper">
           <!-- Slide 1 - Lavique -->
-          <div class="swiper-slide shadow-md">
+          <div class="swiper-slide shadow-md dark:shadow-lg">
             <img
               src="assets/images/palestrante1.png"
               alt="Prof. Lavique"
@@ -257,234 +345,305 @@
           </div>
 
           <!-- Slide 2 - insthanlley-->
-           <div class="swiper-slide shadow-md">
+          <div class="swiper-slide shadow-md dark:shadow-lg">
             <img
               src="assets/images/palestrante5.png"
-              alt="Prof. Lavique"
+              alt="Prof. Insthanlley"
               class="mx-auto rounded-lg"
             />
           </div>
 
           <!-- Slide 3 - Kevyn -->
-           <div class="swiper-slide shadow-md">
+          <div class="swiper-slide shadow-md dark:shadow-lg">
             <img
               src="assets/images/palestrante3.png"
-              alt="Prof. Lavique"
+              alt="Prof. Kevyn"
               class="mx-auto rounded-lg"
             />
           </div>
 
           <!-- Slide 4 - Prof. João Felipe -->
-           <div class="swiper-slide shadow-md">
+          <div class="swiper-slide shadow-md dark:shadow-lg">
             <img
               src="assets/images/palestrante4.png"
-              alt="Prof. Lavique"
+              alt="Prof. João Felipe"
               class="mx-auto rounded-lg"
             />
           </div>
 
           <!-- Slide 5 - Prof. Esdras -->
-           <div class="swiper-slide shadow-md">
+          <div class="swiper-slide shadow-md dark:shadow-lg">
             <img
               src="assets/images/palestrante6.png"
-              alt="Prof. Lavique"
+              alt="Prof. Esdras"
               class="mx-auto rounded-lg"
             />
           </div>
 
           <!-- Slide 6 - Prof. David -->
-           <div class="swiper-slide shadow-md">
+          <div class="swiper-slide shadow-md dark:shadow-lg">
             <img
               src="assets/images/palestrante2.png"
-              alt="Prof. Lavique"
+              alt="Prof. David"
               class="mx-auto rounded-lg"
             />
           </div>
-        
+        </div>
+        <div class="swiper-pagination mt-6"></div>
       </div>
-      <div class="swiper-pagination mt-6"></div>
     </section>
 
-    <!--  Galeria de fotos grey-->
+    <!--  Galeria de fotos -->
 
-    <section id="galeria" class="bg-gray-100 py-8">
+    <section id="galeria" class="bg-gray-100 dark:bg-gray-500 py-8">
       <div class="flex flex-col items-center justify-center">
-         <div class="max-w-7xl mx-auto text-center py-8">
-        <h2 class="text-3xl px-2 md:text-5xl text-4xl text-center font-extrabold mb-2 italic uppercase text-blue-600" style="font-family: 'Roboto', sans-serif; font-weight: 850">
-          Galeria de imagens </h2>
-        <p class="text-sm md:text-lg text-gray-600 mx-auto">
-          Outras edições do TechConnect.
-        </p>
-      </div>
-     <div class="flex items-center justify-center">
-         <div
-          class="absolute w-full bg-blue-600 py-12 md:py-40 flex justify-between items-center"
-        ></div>
-        <div class="w-[90%] md:w-[60%] grid grid-cols-2 gap-4 md:gap-10 z-50">
-         <div class="w-full aspect-[5/3] overflow-hidden rounded-lg shadow-md">
-        <img
-          src="./assets/images/evento1.jpeg"
-          alt="Evento 1"
-          class="w-full h-full object-cover"
-        />
-      </div>
-      <div class="w-full aspect-[5/3] overflow-hidden rounded-lg shadow-md">
-        <img
-          src="./assets/images/evento2.jpg"
-          alt="Evento 2"
-          class="w-full h-full object-cover"
-        />
-      </div>
-      <div class="w-full aspect-[5/3] overflow-hidden rounded-lg shadow-md">
-        <img
-          src="./assets/images/evento3.jpg"
-          alt="Evento 3"
-          class="w-full h-full object-cover"
-        />
-      </div>
-      <div class="w-full aspect-[5/3] overflow-hidden rounded-lg shadow-md">
-        <img
-          src="./assets/images/evento4.jpg"
-          alt="Evento 4"
-          class="w-full h-full object-cover"
-        />
-      </div>
+        <div class="max-w-7xl mx-auto text-center py-8">
+          <h2
+            class="text-3xl px-2 md:text-5xl text-4xl text-center font-extrabold mb-2
+            talic uppercase text-blue-600 dark:text-blue-400"
+            style="font-family: 'Roboto', sans-serif; font-weight: 850"
+          >
+            Galeria de imagens
+          </h2>
+          <p
+            class="text-sm md:text-lg text-gray-600 dark:text-gray-900 mx-auto"
+          >
+            Outras edições do TechConnect.
+          </p>
         </div>
-     </div>
+        <div class="flex items-center justify-center">
+          <div
+            class="absolute w-full bg-blue-600 dark:bg-blue-500 py-12 md:py-40 flex justify-between items-center"
+          ></div>
+          <div class="w-[90%] md:w-[60%] grid grid-cols-2 gap-4 md:gap-10 z-50">
+            <div
+              class="w-full aspect-[5/3] overflow-hidden rounded-lg shadow-md"
+            >
+              <img
+                src="./assets/images/evento1.jpeg"
+                alt="Evento 1"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div
+              class="w-full aspect-[5/3] overflow-hidden rounded-lg shadow-md"
+            >
+              <img
+                src="./assets/images/evento2.jpg"
+                alt="Evento 2"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div
+              class="w-full aspect-[5/3] overflow-hidden rounded-lg shadow-md"
+            >
+              <img
+                src="./assets/images/evento3.jpg"
+                alt="Evento 3"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div
+              class="w-full aspect-[5/3] overflow-hidden rounded-lg shadow-md"
+            >
+              <img
+                src="./assets/images/evento4.jpg"
+                alt="Evento 4"
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!--  Carrosel depoimentos - Lavique white -->
-  <section id="depoimentos" class="py-12 bg-white">
-    <h2 class="text-3xl px-2 md:text-5xl text-4xl text-center font-extrabold mb-2 italic uppercase text-blue-600" style="font-family: 'Roboto', sans-serif; font-weight: 850">
-      Depoimentos
-    </h2>
-     <p class="text-sm md:text-lg text-center text-gray-600 pb-8 mx-auto">
-      O que dizem nossos participantes: experiências reais, vozes autênticas.
-    </p>
+    <section id="depoimentos" class="py-12 bg-white dark:bg-gray-900">
+      <h2
+        class="text-3xl px-2 md:text-5xl text-4xl text-center font-extrabold mb-2 italic 
+        uppercase text-blue-600 dark:text-blue-400"
+        style="font-family: 'Roboto', sans-serif; font-weight: 850"
+      >
+        Depoimentos
+      </h2>
+      <p class="text-sm md:text-lg text-center text-gray-600 dark:text-gray-400 pb-8 mx-auto">
+        O que dizem nossos participantes: experiências reais, vozes autênticas.
+      </p>
 
-    <div class="swiper swiper-depoimentos w-full max-w-6xl mx-auto">
-      <div class="swiper-wrapper ">
-        <div class="swiper-slide container mx-auto px-4 max-w-3xl">
-          <div class="bg-gray-100 p-6 rounded-lg shadow-md mb-8 h-[250px] overflow-hidden">
-            <div class="flex items-center gap-4 mb-4">
-              <div class="w-16 h-16 rounded-full bg-gray-300 overflow-hidden">
-                <img src="assets/images/ednaldo.jpg" alt="Foto do usuário" class="w-full h-full object-cover">
-              </div>
-              <div class="flex-1">
-                <div class="font-semibold text-lg text-gray-800">Ednaldo Pereira</div>
-      
-                <div class="flex items-center text-sm text-gray-500 gap-2 mt-1">
-                  <div class="flex text-yellow-400">
-                    ★★★★☆
+      <div class="swiper swiper-depoimentos w-full max-w-6xl mx-auto">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide container mx-auto px-4 max-w-3xl">
+            <div
+              class="bg-gray-100 p-6 rounded-lg shadow-md mb-8 h-[250px] overflow-hidden"
+            >
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-16 h-16 rounded-full bg-gray-300 overflow-hidden">
+                  <img
+                    src="assets/images/ednaldo.jpg"
+                    alt="Foto do usuário"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <div class="flex-1">
+                  <div class="font-semibold text-lg text-gray-800">
+                    Ednaldo Pereira
                   </div>
-                  <span class="text-xs">• 01 Jun 2025</span>
+
+                  <div
+                    class="flex items-center text-sm text-gray-500 gap-2 mt-1"
+                  >
+                    <div class="flex text-yellow-400">★★★★☆</div>
+                    <span class="text-xs">• 01 Jun 2025</span>
+                  </div>
                 </div>
               </div>
+              <div class="text-gray-700 text-base leading-relaxed">
+                O evento foi incrível! Aprendi muito com os palestrantes,
+                principalmente sobre inovação em tecnologia. Já quero participar
+                da próxima edição!
+              </div>
             </div>
-            <div class="text-gray-700 text-base leading-relaxed">
-              O evento foi incrível! Aprendi muito com os palestrantes, principalmente sobre inovação em tecnologia. Já quero
-              participar da próxima edição!
+          </div>
+
+          <div class="swiper-slide container mx-auto px-4 max-w-3xl">
+            <div
+              class="bg-gray-100 p-6 rounded-lg shadow-md mb-8 h-[250px] overflow-hidden"
+            >
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-16 h-16 rounded-full bg-gray-300 overflow-hidden">
+                  <img
+                    src="assets/images/serjão.webp"
+                    alt="Foto do usuário"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <div class="flex-1">
+                  <div class="font-semibold text-lg text-gray-800">
+                    Serjão Berranteiro
+                  </div>
+                  <div
+                    class="flex items-center text-sm text-gray-500 gap-2 mt-1"
+                  >
+                    <div class="flex text-yellow-400">★★★★★</div>
+                    <span class="text-xs">• 02 Jun 2025</span>
+                  </div>
+                </div>
+              </div>
+              <div class="text-gray-700 text-base leading-relaxed">
+                Uma experiência sensacional! As oficinas foram muito práticas e
+                os temas abordaram exatamente o que procurava.
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide container mx-auto px-4 max-w-3xl">
+            <div
+              class="bg-gray-100 p-6 rounded-lg shadow-md mb-8 h-[250px] overflow-hidden"
+            >
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-16 h-16 rounded-full bg-gray-300 overflow-hidden">
+                  <img
+                    src="assets/images/neymar.jpg"
+                    alt="Foto do usuário"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <div class="flex-1">
+                  <div class="font-semibold text-lg text-gray-800">Neymar</div>
+                  <div
+                    class="flex items-center text-sm text-gray-500 gap-2 mt-1"
+                  >
+                    <div class="flex text-yellow-400">★★★★☆</div>
+                    <span class="text-xs">• 01 Jun 2025</span>
+                  </div>
+                </div>
+              </div>
+              <div class="text-gray-700 text-base leading-relaxed">
+                Gostei bastante do conteúdo apresentado, principalmente dos
+                insights sobre liderança e inovação. Parabéns à equipe!
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide container mx-auto px-4 max-w-3xl">
+            <div
+              class="bg-gray-100 p-6 rounded-lg shadow-md mb-8 h-[250px] overflow-hidden"
+            >
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-16 h-16 rounded-full bg-gray-300 overflow-hidden">
+                  <img
+                    src="assets/images/mizael.webp"
+                    alt="Foto do usuário"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <div class="flex-1">
+                  <div class="font-semibold text-lg text-gray-800">
+                    Advogado de Alexandre de Moraes
+                  </div>
+                  <div
+                    class="flex items-center text-sm text-gray-500 gap-2 mt-1"
+                  >
+                    <div class="flex text-yellow-400">★★★☆☆</div>
+                    <span class="text-xs">• 31 Mai 2025</span>
+                  </div>
+                </div>
+              </div>
+              <div class="text-gray-700 text-base leading-relaxed">
+                Achei o evento interessante, mas algumas palestras estavam um
+                pouco técnicas demais. No geral, foi produtivo!
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide container mx-auto px-4 max-w-3xl">
+            <div
+              class="bg-gray-100 p-6 rounded-lg shadow-md mb-8 h-[250px] overflow-hidden"
+            >
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-16 h-16 rounded-full bg-gray-300 overflow-hidden">
+                  <img
+                    src="assets/images/heman.jpg"
+                    alt="Foto do usuário"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <div class="flex-1">
+                  <div class="font-semibold text-lg text-gray-800">He-Man</div>
+                  <div
+                    class="flex items-center text-sm text-gray-500 gap-2 mt-1"
+                  >
+                    <div class="flex text-yellow-400">★★★★★</div>
+                    <span class="text-xs">• 02 Jun 2025</span>
+                  </div>
+                </div>
+              </div>
+              <div class="text-gray-700 text-base leading-relaxed">
+                Já participei de outros eventos, mas esse realmente superou as
+                expectativas. Organização impecável e conteúdo de ponta.
+              </div>
             </div>
           </div>
         </div>
-    
-        <div class="swiper-slide container mx-auto px-4 max-w-3xl">
-          <div class="bg-gray-100 p-6 rounded-lg shadow-md mb-8 h-[250px] overflow-hidden">
-            <div class="flex items-center gap-4 mb-4">
-              <div class="w-16 h-16 rounded-full bg-gray-300 overflow-hidden">
-                <img src="assets/images/serjão.webp" alt="Foto do usuário" class="w-full h-full object-cover">
-              </div>
-              <div class="flex-1">
-                <div class="font-semibold text-lg text-gray-800">Serjão Berranteiro</div>
-                <div class="flex items-center text-sm text-gray-500 gap-2 mt-1">
-                  <div class="flex text-yellow-400">★★★★★</div>
-                  <span class="text-xs">• 02 Jun 2025</span>
-                </div>
-              </div>
-            </div>
-            <div class="text-gray-700 text-base leading-relaxed">
-              Uma experiência sensacional! As oficinas foram muito práticas e os temas abordaram exatamente o que procurava.
-            </div>
-          </div>
-        </div>
-    
-        <div class="swiper-slide container mx-auto px-4 max-w-3xl">
-          <div class="bg-gray-100 p-6 rounded-lg shadow-md mb-8 h-[250px] overflow-hidden">
-            <div class="flex items-center gap-4 mb-4">
-              <div class="w-16 h-16 rounded-full bg-gray-300 overflow-hidden">
-                <img src="assets/images/neymar.jpg" alt="Foto do usuário" class="w-full h-full object-cover">
-              </div>
-              <div class="flex-1">
-                <div class="font-semibold text-lg text-gray-800">Neymar</div>
-                <div class="flex items-center text-sm text-gray-500 gap-2 mt-1">
-                  <div class="flex text-yellow-400">★★★★☆</div>
-                  <span class="text-xs">• 01 Jun 2025</span>
-                </div>
-              </div>
-            </div>
-            <div class="text-gray-700 text-base leading-relaxed">
-              Gostei bastante do conteúdo apresentado, principalmente dos insights sobre liderança e inovação. Parabéns à equipe!
-            </div>
-          </div>
-        </div>
-        
-        <div class="swiper-slide container mx-auto px-4 max-w-3xl">
-          <div class="bg-gray-100 p-6 rounded-lg shadow-md mb-8 h-[250px] overflow-hidden">
-            <div class="flex items-center gap-4 mb-4">
-              <div class="w-16 h-16 rounded-full bg-gray-300 overflow-hidden">
-                <img src="assets/images/mizael.webp" alt="Foto do usuário" class="w-full h-full object-cover">
-              </div>
-              <div class="flex-1">
-                <div class="font-semibold text-lg text-gray-800">Advogado de Alexandre de Moraes</div>
-                <div class="flex items-center text-sm text-gray-500 gap-2 mt-1">
-                  <div class="flex text-yellow-400">★★★☆☆</div>
-                  <span class="text-xs">• 31 Mai 2025</span>
-                </div>
-              </div>
-            </div>
-            <div class="text-gray-700 text-base leading-relaxed">
-              Achei o evento interessante, mas algumas palestras estavam um pouco técnicas demais. No geral, foi produtivo!
-            </div>
-          </div>
-        </div>
-        
-        <div class="swiper-slide container mx-auto px-4 max-w-3xl">
-          <div class="bg-gray-100 p-6 rounded-lg shadow-md mb-8 h-[250px] overflow-hidden">
-            <div class="flex items-center gap-4 mb-4">
-              <div class="w-16 h-16 rounded-full bg-gray-300 overflow-hidden">
-                <img src="assets/images/heman.jpg" alt="Foto do usuário" class="w-full h-full object-cover">
-              </div>
-              <div class="flex-1">
-                <div class="font-semibold text-lg text-gray-800">He-Man</div>
-                <div class="flex items-center text-sm text-gray-500 gap-2 mt-1">
-                  <div class="flex text-yellow-400">★★★★★</div>
-                  <span class="text-xs">• 02 Jun 2025</span>
-                </div>
-              </div>
-            </div>
-            <div class="text-gray-700 text-base leading-relaxed">
-              Já participei de outros eventos, mas esse realmente superou as expectativas. Organização impecável e conteúdo de
-              ponta.
-            </div>
-          </div>
-        </div>
+
+        <div class="swiper-pagination mt-4"></div>
       </div>
-      
-      <div class="swiper-pagination mt-4"></div>
-    </div>
+    </section>
 
-  </section>
-
-      <!-- programação -->
-    <section id="programacao" class="bg-gray-100 py-16 px-6 md:px-12">
+    <!-- programação -->
+    <section id="programacao" class="bg-gray-100 dark:bg-gray-500 py-16 px-6 md:px-12">
       <div class="max-w-5xl mx-auto">
-       <h2 class="text-3xl px-2 md:text-5xl text-4xl text-center font-extrabold mb-2 italic uppercase text-blue-600" style="font-family: 'Roboto', sans-serif; font-weight: 850">
-  Programação do Evento
-</h2>
-<p class="text-sm md:text-lg text-center text-gray-600 pb-8 mx-auto">
-  Confira os horários, atividades e tudo que preparamos para você viver uma experiência completa.
-</p>
+        <h2
+          class="text-3xl px-2 md:text-5xl text-4xl text-center font-extrabold 
+          mb-2 italic uppercase text-blue-600 dark:text-blue-400"
+          style="font-family: 'Roboto', sans-serif; font-weight: 850"
+        >
+          Programação do Evento
+        </h2>
+        <p class="text-sm md:text-lg text-center text-gray-600 dark:text-gray-900 pb-8 mx-auto">
+          Confira os horários, atividades e tudo que preparamos para você viver
+          uma experiência completa.
+        </p>
 
         <div class="overflow-x-auto shadow-lg">
           <table
@@ -534,7 +693,9 @@
               <tr>
                 <td class="px-6 py-4 font-medium text-gray-700">15:00h</td>
                 <td class="px-6 py-4 text-gray-800">Prof. David</td>
-                <td class="px-6 py-4 text-gray-600">Estudando com outra geração</td>
+                <td class="px-6 py-4 text-gray-600">
+                  Estudando com outra geração
+                </td>
               </tr>
             </tbody>
           </table>
@@ -542,67 +703,73 @@
       </div>
     </section>
 
-   
-
     <!--  Patrocinadores - Lavique white-->
 
-    <section id="patrocinadores" class="py-12 bg-white">
+    <section id="patrocinadores" class="py-12 bg-white dark:bg-gray-900">
       <div class="max-w-7xl mx-auto px-4">
-        <h2 class="text-3xl px-2 md:text-5xl text-4xl text-center font-extrabold mb-2 italic uppercase text-blue-600" style="font-family: 'Roboto', sans-serif; font-weight: 850">
-  Patrocinadores
-</h2>
-<p class="text-sm md:text-lg text-center text-gray-600 pb-8 mx-auto">
-  Conheça as marcas que acreditam na inovação e tornam este evento possível.
-</p>
-
+        <h2
+          class="text-3xl px-2 md:text-5xl text-4xl text-center font-extrabold mb-2 italic 
+          uppercase text-blue-600 dark:text-blue-400"
+          style="font-family: 'Roboto', sans-serif; font-weight: 850"
+        >
+          Patrocinadores
+        </h2>
+        <p class="text-sm md:text-lg text-center text-gray-600 dark:text-gray-400 pb-8 mx-auto">
+          Conheça as marcas que acreditam na inovação e tornam este evento
+          possível.
+        </p>
 
         <div
-          class="grid grid-cols-2 py-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 items-center justify-items-center"
+          class="grid grid-cols-2 py-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 items-center justify-items-center "
         >
           <img
             src="assets/images/space-x-logo.png"
             alt="spacex"
-            class="h-12 sm:h-16 object-contain"
+            class="h-12 sm:h-16 object-contain dark:bg-white dark:rounded-2xl dark:p-2"
           />
           <img
             src="assets/images/logo_redecompras_-_site_solides.png_name_20230619-11097-1o2fjtv.png"
             alt="rede-compras"
-            class="h-12 sm:h-16 object-contain"
+            class="h-12 sm:h-16 object-contain dark:bg-white dark:rounded-2xl dark:p-2"
           />
           <img
             src="assets/images/aws.svg.png"
             alt="aws"
-            class="h-12 sm:h-16 object-contain"
+            class="h-12 sm:h-16 object-contain dark:bg-white dark:rounded-2xl dark:p-2"
           />
           <img
             src="assets/images/lindo-olhar.png"
             alt="lindo-olhar"
-            class="h-12 sm:h-16 object-contain"
+            class="h-12 sm:h-16 object-contain dark:bg-white dark:rounded-2xl dark:p-2"
           />
           <img
             src="assets/images/microsoft_logo_icon_168102.webp"
             alt="microsoft"
-            class="h-12 sm:h-16 object-contain"
+            class="h-12 sm:h-16 object-contain dark:bg-white dark:rounded-2xl dark:p-2"
           />
         </div>
       </div>
     </section>
 
     <!-- Fale Conosco -->
-    <section id="contatos" class="bg-gray-100 py-16 px-6 md:px-12">
+    <section id="contatos" class="bg-gray-100 dark:bg-gray-500 py-16 px-6 md:px-12">
       <div class="max-w-2xl mx-auto">
-        <h2 class="text-3xl px-2 md:text-4xl text-4xl text-center font-extrabold mb-2  uppercase text-gray-800" style="font-family: 'Roboto', sans-serif; font-weight: 850">
-  Fale Conosco
-</h2>
-<p class="text-sm md:text-md text-center text-gray-600 pb-8 mx-auto">
-  Tem dúvidas, sugestões ou quer saber mais? Estamos prontos para te ouvir.
-</p>
-
+        <h2
+          class="text-3xl px-2 md:text-4xl text-4xl text-center font-extrabold mb-2 
+          uppercase text-gray-800 dark:text-gray-900"
+          style="font-family: 'Roboto', sans-serif; font-weight: 850"
+        >
+          Fale Conosco
+        </h2>
+        <p class="text-sm md:text-md text-center text-gray-600 dark:text-gray-900 pb-8 mx-auto">
+          Tem dúvidas, sugestões ou quer saber mais? Estamos prontos para te
+          ouvir.
+        </p>
 
         <form class="space-y-6">
           <!-- Nome -->
           <div>
-            <label for="nome" class="block text-sm font-medium text-gray-700"
+            <label for="nome" class="block text-sm font-medium text-gray-700 dark:text-gray-900"
               >Nome</label
             >
             <input
@@ -617,7 +784,7 @@
 
           <!-- E-mail -->
           <div>
-            <label for="email" class="block text-sm font-medium text-gray-700"
+            <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-900"
               >E-mail</label
             >
             <input
@@ -634,7 +801,7 @@
           <div>
             <label
               for="mensagem"
-              class="block text-sm font-medium text-gray-700"
+              class="block text-sm font-medium text-gray-700 dark:text-gray-900"
               >Mensagem</label
             >
             <textarea
@@ -679,5 +846,41 @@
         </div>
       </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const themeToggleBtn = document.getElementById("theme-toggle");
+        const darkIcon = document.getElementById("theme-toggle-dark-icon");
+        const lightIcon = document.getElementById("theme-toggle-light-icon");
+
+        // Atualiza o ícone conforme o tema atual
+        if (
+          localStorage.getItem("color-theme") === "dark" ||
+          (!localStorage.getItem("color-theme") &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ) {
+          document.documentElement.classList.add("dark");
+          lightIcon.classList.remove("hidden");
+        } else {
+          document.documentElement.classList.remove("dark");
+          darkIcon.classList.remove("hidden");
+        }
+
+        // Alternar tema ao clicar no botão
+        themeToggleBtn.addEventListener("click", () => {
+          darkIcon.classList.toggle("hidden");
+          lightIcon.classList.toggle("hidden");
+
+          if (document.documentElement.classList.contains("dark")) {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("color-theme", "light");
+          } else {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("color-theme", "dark");
+          }
+        });
+      });
+    </script>
   </body>
 </html>
